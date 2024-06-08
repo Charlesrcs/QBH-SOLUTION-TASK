@@ -1,0 +1,45 @@
+<!-- <div class="flex justify-center items-center mt-3">
+</div> -->
+<div class="flex justify-center">
+    <h4 class="text-primary font-bold ">Add User Details</h4>
+</div>
+    <form [formGroup]="addUserForm">
+        <div class="flex flex-col gap-4">
+            <div>
+                <mat-form-field class="component--mat-form-field__custom-input" appearance="outline">
+                    <mat-label>Enter Your Name</mat-label>
+                    <input matInput placeholder="UserName" formControlName="username" (keydown)="allowLettersOnly($event)">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="component--mat-form-field__custom-input" appearance="outline">
+                    <mat-label>Enter Your Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="component--mat-form-field__custom-input" appearance="outline">
+                    <mat-label>Enter Mobile_no</mat-label>
+                    <input matInput placeholder="mobile_no" formControlName="mobileno" (keydown)="allowNumbersOnly($event)">
+                    <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="component--mat-form-field__text-area-input" appearance="outline">
+                    <mat-label>Enter Your Address</mat-label>
+                    <textarea matInput placeholder="Type the address..." style="resize: none;" rows="3" formControlName="address"></textarea>
+                    <mat-icon matSuffix>location_on</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="flex justify-center">
+               <div *ngIf="addButtonFlag">
+                <button mat-raised-button class="primary-button" [disabled]="addUserForm.invalid" (click)="addUserDetail()">Add User</button>
+               </div>
+               <div *ngIf="updateButtonFlag">
+                <button mat-raised-button class="primary-button" (click)="editUserDetail()">Edit User</button>
+               </div>
+            </div>
+        </div>
+    </form>

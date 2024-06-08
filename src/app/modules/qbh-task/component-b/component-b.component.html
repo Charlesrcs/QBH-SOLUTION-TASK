@@ -1,0 +1,39 @@
+<div class="flex justify-center">
+  <h4 class="text-primary font-extrabold font">List of User Details</h4>
+</div>
+<div class="table-responsive-sm" id="pdfgenerate">
+  <table class="table table-hover">
+    <thead class=" table-primary">
+      <tr>
+        <th scope="col">User Name</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Mobile No</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let item of userDetails">
+        <td>{{item.user_name}}</td>
+        <td>{{item.email_id}}</td>
+        <td>{{item.mobile_no}}</td>
+        <td>{{item.address}}</td>
+        <td>
+          <div class="flex gap-2">
+            <button mat-icon-button (click)="updateUser(item)">
+              <mat-icon class="text-yellow-400">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteUser(item)">
+              <mat-icon class="text-red">delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="flex gap-2 justify-center">
+  <button mat-raised-button class="primary-button" (click)="generatePDF()">Pdf generate</button>
+  <button mat-raised-button class="primary-button " (click)="downloadPDF()">Pdf download</button>
+  <button mat-raised-button class="primary-button" (click)="viewPDF()">Pdf viewer</button>
+</div>
